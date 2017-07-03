@@ -22,7 +22,10 @@ public class FractionNumberOperations extends FractionNumber implements IFractio
         c.simples();
         return c;
     }
-    public  FractionNumber sub (FractionNumber a, FractionNumber b){
+    public  FractionNumber sub (FractionNumber a, FractionNumber b) throws NullPointerException{
+        if (a == null || b == null){
+            throw new NullPointerException("a == null || b == null");
+        }
         FractionNumber c = new FractionNumber();
         int div1 = a.getDividend();
         int div2 = b.getDividend();
@@ -35,7 +38,10 @@ public class FractionNumberOperations extends FractionNumber implements IFractio
         c.simples();
         return c;
     }
-    public  FractionNumber mul(FractionNumber a, FractionNumber b){
+    public  FractionNumber mul(FractionNumber a, FractionNumber b) throws NullPointerException{
+        if (a == null || b == null){
+            throw new NullPointerException("a == null || b == null");
+        }
         FractionNumber c = new FractionNumber();
         int div1 = a.getDividend();
         int div2 = b.getDividend();
@@ -48,8 +54,12 @@ public class FractionNumberOperations extends FractionNumber implements IFractio
         c.simples();
         return c;
     }
-    public  FractionNumber div (FractionNumber a, FractionNumber b){
-
+    public  FractionNumber div (FractionNumber a, FractionNumber b) throws NullPointerException, ArithmeticException{
+        if (a == null || b == null){
+            throw new NullPointerException("a == null || b == null");
+        }else if (b.getDividend() == 0){
+            throw new ArithmeticException("Delenie na 0");
+        }
         int div1 = b.getDividend();
         int dis1 = b.getDivisor();
         FractionNumber e = new FractionNumber(dis1,div1);

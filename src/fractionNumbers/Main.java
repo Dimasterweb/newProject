@@ -41,7 +41,13 @@ public class Main {
 
         System.out.println("--------------- Minus --------------");
 
-        FractionNumber num11 = new FractionNumber(-2,4);
+        FractionNumber num11 = null;
+        try {
+            num11 = new FractionNumber(-2,0);
+        }catch (IllegalArgumentException e){
+            System.out.println("Divisor must not be ");
+        }
+
         FractionNumber num12 = new FractionNumber(3,5);
         FractionNumber num13 = new FractionNumber(5,7);
         FractionNumber num14 = new FractionNumber(23,44);
@@ -51,21 +57,19 @@ public class Main {
         FractionNumber num18 = new FractionNumber(18, -26);
         FractionNumber num19 = new FractionNumber(10568,12349);
         FractionNumber num20 = new FractionNumber(30418,42522);
-
-        FractionNumberOperations res6 = new FractionNumberOperations();
-        FractionNumber result6 = res6.sub(num11,num12);
-        result6.printToConsole();
-        FractionNumberOperations res7 = new FractionNumberOperations();
-        FractionNumber result7 = res7.sub(num13,num14);
+        try {
+            FractionNumber result6 = res1.sub(num11,num12);
+            result6.printToConsole();
+        }catch (NullPointerException e){
+            System.out.println("a == null || b == null");
+        }
+        FractionNumber result7 = res1.sub(num13,num14);
         result7.printToConsole();
-        FractionNumberOperations res8 = new FractionNumberOperations();
-        FractionNumber result8 = res8.sub(num15,num16);
+        FractionNumber result8 = res1.sub(num15,num16);
         result8.printToConsole();
-        FractionNumberOperations res9 = new FractionNumberOperations();
-        FractionNumber result9 = res9.sub(num17,num18);
+        FractionNumber result9 = res1.sub(num17,num18);
         result9.printToConsole();
-        FractionNumberOperations res10 = new FractionNumberOperations();
-        FractionNumber result10 = res10.sub(num19,num20);
+        FractionNumber result10 = res1.sub(num19,num20);
         result10.printToConsole();
 
         System.out.println("--------------- Multiplication --------------");
@@ -81,26 +85,22 @@ public class Main {
         FractionNumber num29 = new FractionNumber(10568,12349);
         FractionNumber num30 = new FractionNumber(30418,42522);
 
-        FractionNumberOperations res11 = new FractionNumberOperations();
-        FractionNumber result11 = res11.mul(num21,num22);
+
+        FractionNumber result11 = res1.mul(num21,num22);
         result11.printToConsole();
-        FractionNumberOperations res12 = new FractionNumberOperations();
-        FractionNumber result12 = res12.mul(num23,num24);
+        FractionNumber result12 = res1.mul(num23,num24);
         result12.printToConsole();
-        FractionNumberOperations res13 = new FractionNumberOperations();
-        FractionNumber result13 = res13.mul(num25,num26);
+        FractionNumber result13 = res1.mul(num25,num26);
         result13.printToConsole();
-        FractionNumberOperations res14 = new FractionNumberOperations();
-        FractionNumber result14 = res14.mul(num27,num28);
+        FractionNumber result14 = res1.mul(num27,num28);
         result14.printToConsole();
-        FractionNumberOperations res15 = new FractionNumberOperations();
-        FractionNumber result15 = res15.mul(num29,num30);
+        FractionNumber result15 = res1.mul(num29,num30);
         result15.printToConsole();
 
         System.out.println("--------------- Division --------------");
 
         FractionNumber num31 = new FractionNumber(-2,4);
-        FractionNumber num32 = new FractionNumber(3,5);
+        FractionNumber num32 = new FractionNumber(0,5);
         FractionNumber num33 = new FractionNumber(5,7);
         FractionNumber num34 = new FractionNumber(23,44);
         FractionNumber num35 = new FractionNumber(108,174);
@@ -110,20 +110,20 @@ public class Main {
         FractionNumber num39 = new FractionNumber(10568,12349);
         FractionNumber num40 = new FractionNumber(30418,42522);
 
-        FractionNumberOperations res16 = new FractionNumberOperations();
-        FractionNumber result16 = res16.div(num31,num32);
-        result16.printToConsole();
-        FractionNumberOperations res17 = new FractionNumberOperations();
-        FractionNumber result17 = res17.div(num33,num34);
+
+        try {
+            FractionNumber result16 = res1.div(num31,num32);
+            result16.printToConsole();
+        }catch (ArithmeticException e){
+            System.out.println("Delenie na 0");
+        }
+        FractionNumber result17 = res1.div(num33,num34);
         result17.printToConsole();
-        FractionNumberOperations res18 = new FractionNumberOperations();
-        FractionNumber result18 = res18.div(num35,num36);
+        FractionNumber result18 = res1.div(num35,num36);
         result18.printToConsole();
-        FractionNumberOperations res19 = new FractionNumberOperations();
-        FractionNumber result19 = res19.div(num37,num38);
+        FractionNumber result19 = res1.div(num37,num38);
         result19.printToConsole();
-        FractionNumberOperations res20 = new FractionNumberOperations();
-        FractionNumber result20 = res20.div(num39,num40);
+        FractionNumber result20 = res1.div(num39,num40);
         result20.printToConsole();
     }
 }

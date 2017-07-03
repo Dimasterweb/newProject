@@ -42,6 +42,11 @@ public class Matrix implements IMatrix{
 
     @Override
     public IMatrix add(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
+        if (this.getRows() != otherMatrix.getRows() || this.getColumns() != otherMatrix.getColumns()){
+            throw new IllegalArgumentException("Kolichestvo strok || Kolichestvo stolbcov !=");
+        } else if (otherMatrix == null){
+            throw new NullPointerException("Matrix == null");
+        }
         if ((this.getRows() == otherMatrix.getRows()) && (this.getColumns() == otherMatrix.getColumns())){
             Matrix resultMatrix = new Matrix(this.getRows(),this.getColumns());
             for (int i = 0;i < resultMatrix.getRows(); i++){
@@ -103,6 +108,8 @@ public class Matrix implements IMatrix{
 
     @Override
     public void printToConsole() {
+        System.out.println(matrix);
+
 
     }
 }
