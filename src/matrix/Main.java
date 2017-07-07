@@ -12,6 +12,5 @@ public class Main {
         Matrix matrix2 = new Matrix(numbers1);
         IMatrix resultMatrix = matrix1.add(matrix2);
         resultMatrix.printToConsole();
-
     }
 }

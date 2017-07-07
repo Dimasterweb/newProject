@@ -65,11 +65,36 @@ public class Matrix implements IMatrix{
 
     @Override
     public IMatrix sub(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+        if (this.getRows() != otherMatrix.getRows() || this.getColumns() != otherMatrix.getColumns()){
+            throw new IllegalArgumentException("Kolichestvo strok || Kolichestvo stolbcov !=");
+        } else if (otherMatrix == null){
+            throw new NullPointerException("Matrix == null");
+        }
+        if ((this.getRows() == otherMatrix.getRows()) && (this.getColumns() == otherMatrix.getColumns())){
+            Matrix resultMatrix = new Matrix(this.getRows(),this.getColumns());
+            for (int i = 0;i < resultMatrix.getRows(); i++){
+                for (int j = 0; j < resultMatrix.getColumns(); j++) {
+                    resultMatrix.setValueAt(i, j, this.getValueAt(i,j) - otherMatrix.getValueAt(i,j));
+                }
+            }
+            return resultMatrix;
+        }else {
+            System.out.println("Eror rows or column != ");
+            return null;
+        }
     }
 
     @Override
     public IMatrix mul(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
+        if (this.getColumns() != otherMatrix.getRows()){
+            throw new IllegalArgumentException("Kolichestvo stolbcov 1 matrix != Kolichestvu strok 2 matrix ");
+        } else if (otherMatrix == null){
+            throw new NullPointerException("Matrix == null");
+        }
+        if (this.getColumns() == otherMatrix.getRows()){
+            Matrix resultMatrix = new Matrix(this.getRows(),otherMatrix.getColumns());
+
+        }
         return null;
     }
 
@@ -111,14 +136,17 @@ public class Matrix implements IMatrix{
     @Override
     public String toString() {
         return "Matrix{" +
-                "matrix=" + Arrays.toString(matrix) +
+                "matrix=" + (matrix) +
                 '}';
     }
 
     @Override
     public void printToConsole() {
-        System.out.println(matrix.toString());
-
-
+        for (int i = 0; i < this.getRows();i++){
+            for (int j = 0; j < this.getColumns();j++){
+                System.out.print(this.getValueAt(i,j) + " ");
+            }
+            System.out.println();
+        }
     }
 }
