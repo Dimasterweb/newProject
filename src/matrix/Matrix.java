@@ -1,5 +1,7 @@
 package matrix;
 
+import java.util.Arrays;
+
 /**
  * Created by Dimaster on 28.06.2017.
  * *
@@ -107,8 +109,15 @@ public class Matrix implements IMatrix{
     }
 
     @Override
+    public String toString() {
+        return "Matrix{" +
+                "matrix=" + Arrays.toString(matrix) +
+                '}';
+    }
+
+    @Override
     public void printToConsole() {
-        System.out.println(matrix);
+        System.out.println(matrix.toString());
 
 
     }

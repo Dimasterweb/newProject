@@ -150,10 +150,12 @@ public interface IMatrix {
 	 * @return <b>true</b> если текущая матрица квадратная
 	 */
 	boolean isSquareMatrix();
+
+	String toString ();
 	
 	/**
 	 * Вывод матрицу на консоль
-	 * @see System.out.println()
+	 * @see
 	 */
 	void printToConsole();
 }

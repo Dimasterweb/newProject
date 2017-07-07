@@ -3,7 +3,7 @@ package exeptionsExample;
 import java.util.Scanner;
 
 /**
- * Created by Dimaster on 02.07.2017.
+ * Created by Dimaster on 02.07.2017.7
  */
 public class ConsolUtils {
 
