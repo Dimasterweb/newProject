@@ -94,23 +94,52 @@ public class Matrix implements IMatrix{
         if (this.getColumns() == otherMatrix.getRows()){
             Matrix resultMatrix = new Matrix(this.getRows(),otherMatrix.getColumns());
 
+            for (int i = 0 ; i < this.getRows(); i ++){
+                for (int j = 0 ; j < otherMatrix.getColumns(); j ++){
+                    double val = 0;
+                    for (int l = 0; l < otherMatrix.getRows(); l++){
+                        resultMatrix.setValueAt(i,j,val += this.getValueAt(i, l) * otherMatrix.getValueAt(l, j));
+                    }
+                }
+            }
+            return resultMatrix;
+
+        }else {
+            System.out.println("Kolichestvo stolbcov 1 matrix != Kolichestvu strok 2 matrix ");
+            return null;
         }
-        return null;
+
     }
 
     @Override
     public IMatrix mul(double value) {
-        return null;
+        Matrix resultMatrix = new Matrix(this.getRows(),this.getColumns());
+        for (int i = 0; i < this.getRows(); i++){
+            for(int j = 0; j < this.getColumns(); j++){
+                resultMatrix.setValueAt(i,j,this.getValueAt(i,j)*value);
+            }
+        }
+        return resultMatrix;
     }
 
     @Override
     public IMatrix transpose() {
-        return null;
+        Matrix resultMatrix = new Matrix(this.getColumns(),this.getRows());
+        for (int i = 0; i < this.getColumns(); i++){
+            for (int j = 0; j < this.getRows(); j++){
+                resultMatrix.setValueAt(i,j,this.getValueAt(j,i));
+            }
+        }
+        return resultMatrix;
     }
 
     @Override
     public void fillMatrix(double value) {
-
+        for (int i = 0; i < this.getRows(); i++){
+            for (int j = 0; j < this.getColumns(); j++){
+                this.setValueAt(i,j,value);
+            }
+        }
     }
 
     @Override
@@ -131,13 +160,6 @@ public class Matrix implements IMatrix{
     @Override
     public boolean isSquareMatrix() {
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return "Matrix{" +
-                "matrix=" + (matrix) +
-                '}';
     }
 
     @Override
